@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Result Downloader</title>
+  <link rel="stylesheet" crossorigin href="/assets/index-DTb7tfM4.css">
+</head>
+<body>
+  <h2> -Download Your Result-</h2>
+  <h3>*First login into ERP</h3>
+
+  <input type="text" id="codePart" placeholder="Enter your sic in upper case" />
+  <button onclick="generateLink()">Download</button>
+
+  <script>
+    function generateLink() {
+      const codePart = document.getElementById("codePart").value.trim();
+      if (!codePart) {
+        alert("Please enter the code after SITBBS");
+        return;
+      }
+
+      const fullCode = "SITBBS" + codePart;
+      const url = `https://erp.silicon.ac.in/estcampus/autonomous_exam/final_semester_result_pdf_download.php?role_code=M1Z5SEVJM2dub0NWWE5GZy82dHh2QT09&student_code=${encodeURIComponent(fullCode)}&semester=undefined`;
+
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = ""; // This may help force download
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    }
+  </script>
+</body>
+</html>
+
