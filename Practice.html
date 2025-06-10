@@ -26,7 +26,7 @@
 
       const a = document.createElement("a");
       a.href = url;
-      a.download = ""; // This may help force download
+      a.download = "";
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
